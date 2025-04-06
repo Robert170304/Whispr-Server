@@ -12,7 +12,7 @@ COPY . .
 
 # Download the correct model file
 # Adjust the URL if you need a different model
-RUN curl -L -o /app/whisper.cpp/models/ggml-tiny.en.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/models/ggml-tiny.en.bin
+RUN curl -L -o /app/whisper.cpp/models/ggml-tiny.en.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.en.bin
 
 # Build whisper.cpp
 WORKDIR /app/whisper.cpp
