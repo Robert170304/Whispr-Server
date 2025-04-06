@@ -10,6 +10,9 @@ WORKDIR /app
 # Copy everything including whisper.cpp
 COPY . .
 
+# Init submodules (whisper.cpp)
+RUN git submodule update --init --recursive
+
 # Build whisper.cpp
 WORKDIR /app/whisper.cpp
 RUN make
