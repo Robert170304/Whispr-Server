@@ -12,7 +12,8 @@ COPY . .
 
 # Build whisper.cpp
 WORKDIR /app/whisper.cpp
-RUN make
+RUN make && ls -la
+RUN chmod +x /app/whisper.cpp/main
 
 # Back to root for your app
 WORKDIR /app
