@@ -6,7 +6,6 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const PORT = 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -86,6 +85,6 @@ const getLocalIp = () => {
 
 const HOST = getLocalIp();
 
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Server running on port 5000");
+app.listen(process.env.PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
