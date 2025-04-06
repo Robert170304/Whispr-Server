@@ -24,8 +24,5 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 # Install NPM deps
 RUN npm install
 
-# Expose port (optional if you're using express or something)
-EXPOSE 3000
-
 # Start your server
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
