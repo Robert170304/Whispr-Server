@@ -1,3 +1,4 @@
+require("dotenv").config(); // 👈 Add this
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
@@ -68,22 +69,6 @@ function formatTranscript(text) {
   text = text.replace(/([.?!])\s+/g, "$1\n\n"); // Break sentences onto new lines
   return text;
 }
-
-const os = require("os");
-
-const getLocalIp = () => {
-  const interfaces = os.networkInterfaces();
-  for (const name in interfaces) {
-    for (const net of interfaces[name]) {
-      if (net.family === "IPv4" && !net.internal) {
-        return net.address;
-      }
-    }
-  }
-  return "0.0.0.0";
-};
-
-const HOST = getLocalIp();
 
 app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${process.env.PORT}`);
