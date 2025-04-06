@@ -30,12 +30,7 @@ app.post("/transcribe", upload.single("audio"), (req, res) => {
   if (fileStats.size === 0) {
     return res.status(400).json({ error: "Uploaded file is empty" });
   }
-  console.log(
-    "Checking if whisper-cli exists:",
-    fs.existsSync("./whisper.cpp/main")
-  );
-
-  const command = `./whisper.cpp/main -m ./whisper.cpp/models/ggml-base.en.bin -f ${filePath}`;
+  const command = `./whisper.cpp/build/bin/whisper-cli -m whisper.cpp/models/ggml-tiny.en.bin -f "${filePath}" --output-txt`;
 
   exec(command, (error, stdout, stderr) => {
     console.log("Whisper stderr:", stderr);
